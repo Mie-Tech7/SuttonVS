@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Sutton Venture Studio</title>
+  <meta name="description" content="Start a conversation with Sutton Venture Studio. Consulting engagements, co-founder opportunities, and operator interest. Houston, TX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">SuttonVS</a>
+      <ul class="nav-links">
+        <li><a href="ventures.html">Ventures</a></li>
+        <li><a href="consulting.html">Consulting</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay">
+    <a href="index.html">Home</a>
+    <a href="ventures.html">Ventures</a>
+    <a href="consulting.html">Consulting</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Let's Talk</p>
+      <h1>Tell us what<br>you're building.</h1>
+      <p class="subhead">Whether you're a founder looking for a technical co-builder, a business that needs a production-grade AI system, or an operator interested in running one of our ventures — start here.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="section">
+    <div class="container">
+      <div class="form-grid">
+
+        <!-- Error State -->
+        <div class="form-error" id="form-error">
+          Something went wrong. Try again or email us directly at <a href="mailto:josh@suttonvs.com">josh@suttonvs.com</a>
+        </div>
+
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required minlength="2" placeholder="Your name">
+            <span class="error-msg">Please enter your name (at least 2 characters).</span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@company.com">
+            <span class="error-msg">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company / Venture <span class="optional">(optional)</span></label>
+            <input type="text" id="company" name="company" placeholder="Your company or venture name">
+          </div>
+
+          <div class="form-group">
+            <label for="inquiry_type">Inquiry Type</label>
+            <select id="inquiry_type" name="inquiry_type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Consulting Engagement">Consulting Engagement</option>
+              <option value="Co-Founder / Partnership Opportunity">Co-Founder / Partnership Opportunity</option>
+              <option value="Operator / CEO Interest">Operator / CEO Interest</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
+            <span class="error-msg">Please select an inquiry type.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell us about your project</label>
+            <textarea id="message" name="message" required minlength="50" placeholder="Describe your project, timeline, and goals (minimum 50 characters)"></textarea>
+            <span class="error-msg">Please describe your project (at least 50 characters).</span>
+          </div>
+
+          <div class="form-group">
+            <label for="budget_range">Budget Range <span class="optional">(optional)</span></label>
+            <select id="budget_range" name="budget_range">
+              <option value="" disabled selected>Select a range</option>
+              <option value="Under $10K">Under $10K</option>
+              <option value="$10K – $25K">$10K – $25K</option>
+              <option value="$25K – $75K">$25K – $75K</option>
+              <option value="$75K+">$75K+</option>
+              <option value="Equity / Partnership">Equity / Partnership</option>
+            </select>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">Send It</button>
+          </div>
+        </form>
+
+        <!-- Success State -->
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="2"/>
+              <path d="M15 24L21 30L33 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>We'll be in touch within 48 hours.</h3>
+          <p>— The Sutton Venture Studio team</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Strip -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-strip">
+        <a href="mailto:josh@suttonvs.com">josh@suttonvs.com</a><br>
+        Houston, TX<br>
+        <a href="https://suttonvs.com">suttonvs.com</a> · <a href="https://revanta.agency" target="_blank" rel="noopener noreferrer">revanta.agency</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">SuttonVS</span>
+        <span>© 2026 Sutton Ventures LLC</span>
+        <span>Houston, TX</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
