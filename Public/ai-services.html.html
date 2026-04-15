@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sutton Ventures — Fractional AI Operations</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #FFFFFF;
+    --color-surface: #F5F5F2;
+    --color-text: #1A1A18;
+    --color-text-secondary: #5A5A52;
+    --color-accent: #C8553D;
+    --color-border: #E0E0DC;
+    --color-dark: #1A1A18;
+    --color-dark-text: #F5F5F2;
+    --color-dark-muted: #B0B0A8;
+    --font-heading: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, sans-serif;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 48px;
+    --space-2xl: 64px;
+    --space-3xl: 96px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: var(--color-bg) !important;
+    color: var(--color-text);
+  }
+
+  body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg) var(--space-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .nav-brand {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text);
+  }
+  .nav-cta {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .nav-cta:hover { border-color: var(--color-accent); }
+
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--space-xl) var(--space-2xl);
+  }
+  .hero-eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5.5vw, 64px);
+    line-height: 1.08;
+    max-width: 780px;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text);
+  }
+  .hero-sub {
+    font-size: clamp(17px, 2vw, 20px);
+    color: var(--color-text-secondary);
+    max-width: 560px;
+    line-height: 1.55;
+  }
+
+  .divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+  }
+  .divider hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-xl);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    padding-top: 6px;
+  }
+  .section-content p {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    max-width: 640px;
+    margin-bottom: var(--space-lg);
+  }
+  .section-content p:last-child { margin-bottom: 0; }
+  .section-content strong { color: var(--color-text); }
+
+  .services {
+    background: var(--color-dark);
+    padding: var(--space-3xl) 0;
+    margin-top: var(--space-2xl);
+  }
+  .services-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+  }
+  .services-header {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+  .services-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-dark-muted);
+    padding-top: 6px;
+  }
+  .services-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.5vw, 40px);
+    color: var(--color-dark-text);
+    line-height: 1.2;
+    max-width: 520px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+  .service-card {
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: var(--space-xl) var(--space-lg);
+    transition: border-color 0.25s ease;
+  }
+  .service-card:hover { border-color: rgba(255,255,255,0.25); }
+  .service-number {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+    letter-spacing: 0.05em;
+  }
+  .service-title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    color: var(--color-dark-text);
+    margin-bottom: var(--space-md);
+    line-height: 1.25;
+  }
+  .service-desc {
+    font-size: 15px;
+    color: var(--color-dark-muted);
+    line-height: 1.6;
+  }
+
+  .process {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--space-xl);
+  }
+  .process-header {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+  .process-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.2;
+    color: var(--color-text);
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+  .step {
+    padding: var(--space-lg) 0;
+    border-top: 2px solid var(--color-text);
+  }
+  .step-number {
+    font-size: 48px;
+    font-family: var(--font-heading);
+    color: var(--color-border);
+    margin-bottom: var(--space-md);
+    line-height: 1;
+  }
+  .step-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+  .step-desc {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  .pricing {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl) var(--space-3xl);
+  }
+  .pricing-header {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+  .pricing-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.2;
+    color: var(--color-text);
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+  .price-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-xl);
+  }
+  .price-card-featured { border-color: var(--color-accent); border-width: 2px; }
+  .price-tag {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+  .price-amount {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+  .price-period {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+  .price-list {
+    list-style: none;
+  }
+  .price-list li {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--color-border);
+    line-height: 1.5;
+  }
+
+  .cta-section {
+    background: var(--color-dark);
+    padding: var(--space-3xl) 0;
+  }
+  .cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    text-align: center;
+  }
+  .cta-inner h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--color-dark-text);
+    margin-bottom: var(--space-lg);
+    line-height: 1.15;
+  }
+  .cta-inner p {
+    font-size: 17px;
+    color: var(--color-dark-muted);
+    margin-bottom: var(--space-xl);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    nav, .hero, .divider, .process, .pricing, footer { padding-left: var(--space-lg); padding-right: var(--space-lg); }
+    .hero { padding-top: var(--space-2xl); padding-bottom: var(--space-xl); }
+    .section-grid { grid-template-columns: 1fr; padding-left: var(--space-lg); padding-right: var(--space-lg); gap: var(--space-md); }
+    .services-inner { padding: 0 var(--space-lg); }
+    .services-header, .process-header, .pricing-header { grid-template-columns: 1fr; gap: var(--space-md); }
+    .services-grid, .process-steps { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .cta-inner { padding: 0 var(--space-lg); }
+    footer { flex-direction: column; gap: var(--space-sm); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Revanta Consulting</div>
+  <a href="mailto:josh@suttonconsulting.io" class="nav-cta">Let's Talk</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Fractional AI Operations</div>
+  <h1>Operate like a company twice your size. Without the headcount.</h1>
+  <p class="hero-sub">I build AI-powered workflows, automations, and tools that let founders and small business operators reclaim hours, reduce overhead, and scale without hiring.</p>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="section-grid">
+  <div class="section-label">The Problem</div>
+  <div class="section-content">
+    <p>You know AI can help your business, but you don't have the time, the technical depth, or the bandwidth to figure out what to build, how to build it, and how to maintain it.</p>
+    <p>You've experimented with ChatGPT. Maybe built a few prompts. But nothing is truly <strong>integrated into your operations</strong> in a way that saves you real time or money every week.</p>
+    <p><strong>That's the gap I fill.</strong></p>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div class="services-label">What You Get</div>
+      <h2 class="services-headline">AI systems built around how you actually work.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3 class="service-title">Workflow Automation</h3>
+        <p class="service-desc">Email triage, lead routing, scheduling, data entry, reporting. I identify the repetitive work draining your team and replace it with AI-powered systems that run on autopilot.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3 class="service-title">AI Tool Buildouts</h3>
+        <p class="service-desc">Custom internal tools, client-facing apps, and AI-assisted dashboards. Production-grade systems built fast and designed to scale with your business, not against it.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3 class="service-title">Ongoing AI Operations</h3>
+        <p class="service-desc">Fractional AI partner on retainer. I manage your prompts, optimize your workflows monthly, and keep your systems current as AI capabilities evolve. You stay focused on running your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="process-header">
+    <div class="section-label">How It Works</div>
+    <h2 class="process-headline">From conversation to operational in weeks, not months.</h2>
+  </div>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-title">Discovery Call</div>
+      <p class="step-desc">30-minute conversation to understand your operations, pain points, and where AI creates the highest leverage. No pitch, just clarity.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-title">Scope &amp; Build</div>
+      <p class="step-desc">I deliver a focused scope with clear deliverables and timeline. Most buildouts ship in 1 to 4 weeks. You see working systems, not slide decks.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-title">Handover or Retain</div>
+      <p class="step-desc">You get a fully documented system you own. Need ongoing support? I stay on as your fractional AI operations partner at a fixed monthly rate.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="pricing">
+  <div class="pricing-header">
+    <div class="section-label">Investment</div>
+    <h2 class="pricing-headline">Two ways to work together.</h2>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-tag">One-Time Buildout</div>
+      <div class="price-amount">$3,500 – $5,000</div>
+      <div class="price-period">Scoped project, delivered in 1–4 weeks</div>
+      <ul class="price-list">
+        <li>Discovery call and operations audit</li>
+        <li>Custom AI workflow or tool, built and deployed</li>
+        <li>Full documentation and handover</li>
+        <li>14-day post-launch support window</li>
+      </ul>
+    </div>
+    <div class="price-card price-card-featured">
+      <div class="price-tag">Monthly Retainer</div>
+      <div class="price-amount">$1,500 – $2,500</div>
+      <div class="price-period">Per month, cancel anytime with 30 days notice</div>
+      <ul class="price-list">
+        <li>Fractional AI operations partner</li>
+        <li>Ongoing prompt management and optimization</li>
+        <li>Monthly workflow reviews and improvements</li>
+        <li>Priority access for new builds and requests</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Let's find the 10 hours a week you're losing to manual work.</h2>
+    <p>One conversation. No commitment. If I can help, I'll tell you exactly how. If I can't, I'll tell you that too.</p>
+    <a href="mailto:josh@suttonconsulting.io" class="cta-btn">Book a Discovery Call</a>
+  </div>
+</section>
+
+<footer>
+  <span>&copy; 2026 Revanta Consulting</span>
+  <span>Houston, TX</span>
+</footer>
+
+</body>
+</html>

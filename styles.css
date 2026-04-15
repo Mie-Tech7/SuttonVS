@@ -430,6 +430,12 @@ body.menu-open .mobile-overlay {
   transition: box-shadow 0.2s ease;
 }
 
+a.venture-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .venture-card:hover {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
@@ -653,6 +659,29 @@ body.menu-open .mobile-overlay {
 .client-spotlight {
   border-top: 1px solid var(--border);
   padding-top: var(--space-xl);
+}
+
+.ai-integration-card {
+  border-left: 3px solid var(--gold);
+  padding: var(--space-lg) var(--space-md);
+  max-width: 760px;
+}
+
+.ai-integration-card h2 {
+  margin-bottom: var(--space-md);
+}
+
+.ai-integration-card p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+  max-width: 600px;
+}
+
+.ai-integration-card .btn-primary {
+  margin-top: var(--space-xs);
 }
 
 .client-spotlight h3 {
