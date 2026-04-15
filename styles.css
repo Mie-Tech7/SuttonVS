@@ -505,9 +505,9 @@ a.venture-card {
 }
 
 .badge-deck {
-  background: transparent;
-  color: var(--border);
-  border: 1px solid var(--border-dark);
+  background: rgba(200, 169, 110, 0.15);
+  color: var(--gold-dark);
+  border: 1px solid rgba(200, 169, 110, 0.3);
 }
 
 /* --- Venture Card Border Colors --- */
